@@ -1,5 +1,7 @@
-export const removeFeature = item => {
-    // dispatch an action here to remove an item
+export const removeFeature = id => {
+    console.log('remove item', id);
+    return { type: 'REMOVE_FEATURE', payload: id }
+
 };
 
 export const buyItem = id => {

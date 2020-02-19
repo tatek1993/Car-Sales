@@ -23,28 +23,26 @@ export const carSaleReducer = (state = initialState, action) => {
         case 'BUY_ITEM' :
            
             const boughtItem = state.additionalFeatures.filter(item => item.id === action.payload)[0]
-
-            // state.additionalFeatures.map(item => {
-            //     if (item.id === action.payload) {
-            //         // console.log(item.name);
-            //         return {
-            //         }
-            //     }
-            // })
-            
             
             console.log(action.payload);
             return {
                 ...state,
                 car: {...state.car, features: [...state.car.features, boughtItem] }
             };
-        default: return state;
-
         
-        // case 'REMOVE_FEATURE' :
-        //     return {
-        //         // car: state.car.features.filter(item => ),
-        //         car: [ ...state.car, {features: [...state.car.features, ...newItem]}]
-        //     }
-    } 
-}
+        
+        case 'REMOVE_FEATURE' :
+
+            const newFeaturesList = state.car.features.filter(item => item.id !== action.payload)
+            console.log("nfl", newFeaturesList);
+            return {
+                ...state,
+                car: { ...state.car, features: newFeaturesList}
+            }
+            console.log("nfl", newFeaturesList);
+        default: 
+            return state;
+
+    }
+
+} 

@@ -7,6 +7,7 @@ import {buyItem} from '../Actions/carSaleActions';
 
 
 const AdditionalFeature = props => {
+  
   const toggleBought = e => {
     props.buyItem(props.feature.id)
   };
