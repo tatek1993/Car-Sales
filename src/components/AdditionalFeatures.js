@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import AdditionalFeature from './AdditionalFeature';
 
 const AdditionalFeatures = props => {
@@ -18,4 +20,26 @@ const AdditionalFeatures = props => {
   );
 };
 
-export default AdditionalFeatures;
+const mapStateToProps = state => {
+  return {
+    additionalFeatures: state.additionalFeatures.map(item => {
+      // const boughtItem = state.additionalFeatures.filter(item => item.id === action.payload)[0]
+      if (state.car.features.filter(feature => feature.id === item.id).length>0) {
+        return {
+          ...item,
+          disabled: true
+        } 
+          
+      }
+      return {
+        ...item,
+        disabled: false
+      } 
+    })
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {}
+  )(AdditionalFeatures);
