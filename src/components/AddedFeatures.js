@@ -22,7 +22,7 @@ const AddedFeatures = props => {
 
 
 const mapStateToProps = state => {
-  console.log('state', state);
+  console.log('added features state', state);
   return {
     features: state.car.features
   }

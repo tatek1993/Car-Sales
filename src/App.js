@@ -7,9 +7,7 @@ import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
 const App = () => {
-  console.log('state', state);
-  
-
+ 
   const [state, dispatch] = useReducer(carSaleReducer, initialState);
 
   
