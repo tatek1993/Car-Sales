@@ -17,19 +17,30 @@ export const initialState = {
     ]
 };
 
-export const carSaleReducer = (state = initialState, action) => { console.log('stoot', state);
+export const carSaleReducer = (state = initialState, action) => { 
+    console.log('stoot', action);
     switch (action.type) {
         case 'BUY_ITEM' :
-            const boughtItem = {
-                name: action.payload.name,
-                price: action.payload.price
-            }
-            console.log(state);
+           
+            const boughtItem = state.additionalFeatures.filter(item => item.id === action.payload)[0]
+
+            // state.additionalFeatures.map(item => {
+            //     if (item.id === action.payload) {
+            //         // console.log(item.name);
+            //         return {
+            //         }
+            //     }
+            // })
+            
+            
+            console.log(action.payload);
             return {
                 ...state,
-                car: {...state.car, features: [...state.car.features, ...boughtItem] }
+                car: {...state.car, features: [...state.car.features, boughtItem] }
             };
         default: return state;
+
+        
         // case 'REMOVE_FEATURE' :
         //     return {
         //         // car: state.car.features.filter(item => ),
