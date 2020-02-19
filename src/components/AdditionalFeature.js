@@ -7,7 +7,7 @@ import {buyItem} from '../Actions/carSaleActions';
 
 
 const AdditionalFeature = props => {
-  
+
   const toggleBought = e => {
     props.buyItem(props.feature.id)
   };
@@ -15,7 +15,7 @@ const AdditionalFeature = props => {
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button" key={props.feature.id} onClick={toggleBought}>Add</button>
+      <button className="button" disabled={props.feature.disabled} key={props.feature.id} onClick={toggleBought}>Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
